@@ -10,6 +10,7 @@ function ProductList({ onHomeClick }) {
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({});
     const cart = useSelector((state) => state.cart);
+    const cartCount = (cart.items.reduce((total, item) => total + item.quantity, 0));
     const dispatch = useDispatch();
 
     const plantsArray = [
@@ -268,7 +269,6 @@ function ProductList({ onHomeClick }) {
             [product.name]: true, // Set the current product's name as a key with value 'true' to mark it as added
         }));
 
-    const cartCount = cart.items.reduce((total, item) => total + item.quantity, 0);
 };
 
     return (
